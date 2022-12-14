@@ -91,8 +91,8 @@ chlg_push() {
             case ${IN} in
                 y|Y)    
                     echo -n "${mk}Select y/Y -> pushing to git: "
-                    #git push origin
-                    #git push origin --tags
+                    git push origin
+                    git push origin --tags
                     echo "done."
                     ;;
                 n|N) echo "${mk}Select n/N -> skipping...." ;;
@@ -110,8 +110,8 @@ chlg_push() {
 chlg_push_auto() {
 
     echo -n "${mk}[Auto-push] Pushing to git: "
-    #git push origin
-    #git push origin --tags
+    git push origin
+    git push origin --tags
     echo "done."
 }
 
@@ -120,13 +120,13 @@ chlg_commit() {
 
     echo -n "${mk}Commiting CHANGELOG.md: " 
     
-        #git add CHANGELOG.md
-        #git commit -m "docs: updated CHANGELOG.md ['${chtype}',version]"
+        git add CHANGELOG.md
+        git commit -m "docs: updated CHANGELOG.md ['${chtype}',version]"
     
     echo "done."
     echo -n "${mk}StepUp version/set tags on repo: "
     
-        #npm version "${chtype}"
+        npm version "${chtype}"
     
     echo -e "done."
     return
@@ -163,7 +163,7 @@ chlg_major() {
     # -> adding to git & commit
     # -> update version by type (major/minor/patch)
     echo -n "${mk}Generate CHANGELOG.md: "
-    #changelog -M
+    changelog -M
     echo "done."
     
     chlg_commit
@@ -194,7 +194,7 @@ chlg_minor() {
     # -> adding to git & commit
     # -> update version by type (major/minor/patch)
     echo -n "${mk}Generate CHANGELOG.md: "
-    #changelog -m
+    changelog -m
     echo "done."
     
     chlg_commit
@@ -225,7 +225,7 @@ chlg_patch() {
     # -> adding to git & commit
     # -> update version by type (major/minor/patch)
     echo -n "${mk}Generate CHANGELOG.md: "
-    #changelog -p
+    changelog -p
     echo "done."
     
     chlg_commit

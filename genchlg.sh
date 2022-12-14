@@ -65,7 +65,8 @@ chlg_check() {
         exit 1
     fi
 
-    if command -v ${CMD} -h &> /dev/null; then
+    # shellcheck disable=SC2317
+    if command -v "${CMD}" -h &> /dev/null; then
         return 0
     else
         printf "\nERROR:"
